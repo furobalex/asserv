@@ -23,6 +23,8 @@ const double ENC_MM_TO_TICKS = (((double)ENC_RESOLUTION)*4.0)/(2.0*M_PI*((double
 const double ENC_CENTER_DIST_MM = 262.0; // Distance entre chaque roue codeuse
 const double ENC_CENTER_DIST_TICKS = ENC_CENTER_DIST_MM*ENC_MM_TO_TICKS; // Distance entre chaque roue codeuse du robot en ticks
 
+#define DEL_PIN 13
+
 // Duree d'un cycle (en millisecondes)
 #define DUREE_CYCLE 2
 
@@ -32,7 +34,7 @@ const double ENC_CENTER_DIST_TICKS = ENC_CENTER_DIST_MM*ENC_MM_TO_TICKS; // Dist
  * pin 3 -> enable moteur 1 (pwm)
  * pin 12 -> direction moteur 1
  * pin 11 -> enable moteur 2 (pwm)
- * pin 13 -> direction moteur 2
+ * pin 14 -> direction moteur 2
  * pin 18 -> A encodeur 1 (gauche)
  * pin 19 -> B encodeur 1 (gauche)
  * pin 21 -> A encodeur 2 (droite)
@@ -41,7 +43,7 @@ const double ENC_CENTER_DIST_TICKS = ENC_CENTER_DIST_MM*ENC_MM_TO_TICKS; // Dist
 #define PIN_EN_LEFT 3
 #define PIN_DIR_LEFT 12
 #define PIN_EN_RIGHT 11
-#define PIN_DIR_RIGHT 13
+#define PIN_DIR_RIGHT 14
 #define PIN_LEFT_A 18			// A encodeur 1 (gauche) (vert-marron)
 #define PIN_LEFT_B 19			// B encodeur 1 (gauche) (vert-blanc)
 #define PIN_RIGHT_A 21			// A encodeur 2 (droite) (noir-blanc)

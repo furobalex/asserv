@@ -9,7 +9,7 @@
 #include "robotstate.h"
 #include "pwm.h"
 #include "fifo.h"
-#include "message.h"
+//#include "message.h"
 #include "control.h"
 
 unsigned long index = 0;
@@ -29,10 +29,10 @@ void setup(){
 	/*Definit la position initiale du robot*/
 	initRobotState();
 	/*Active la liaison serie*/
-	initSerialLink();
+//	initSerialLink();
 
 	// LED qui n'en est pas une
-	pinMode(16,OUTPUT);
+	pinMode(DEL_PIN,OUTPUT);
 }
 
 void loop(){
@@ -40,12 +40,12 @@ void loop(){
 	timeStart = micros();
 
 	/* La del est allumee pendant le traitement */
-	digitalWrite(16, HIGH);
+	digitalWrite(DEL_PIN, HIGH);
 
 	/* zone programmation libre */
 	
 	/*lecture des ordres*/
-	readIncomingData();
+	//readIncomingData();
 
 	/*recuperation du but suivant (vitesse, angle ou position) */
 	if(current_goal.isReached)
@@ -74,7 +74,7 @@ void loop(){
 	/* fin zone de programmation libre */
 	
 	/* On eteint la del */
-	digitalWrite(16, LOW);
+	digitalWrite(DEL_PIN, LOW);
 	
 	/* On attend le temps qu'il faut pour boucler */
 	long udelay = DUREE_CYCLE*1000-(micros()-timeStart);
