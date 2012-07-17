@@ -16,7 +16,6 @@
  * @param args : le tableau d'entier contenant les arguments
  * */
 void cmd(int id, int id_cmd, int* args, int size){
-                        
 	/* On analyse le message en fonction de son type */
 	switch(id_cmd){
 

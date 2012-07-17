@@ -149,6 +149,7 @@ void readIncomingData()
 	for(int i = 0; i < available; i++){
 		// recuperer l'octet courant
 		int data = Serial.read();
+                Serial.print(data);
 		switch(data){
 			// separateur
 			case SEP:

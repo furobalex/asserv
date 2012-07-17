@@ -9,7 +9,7 @@
 #include "robotstate.h"
 #include "pwm.h"
 #include "fifo.h"
-//#include "message.h"
+#include "message.h"
 #include "control.h"
 
 unsigned long index = 0;
@@ -28,6 +28,8 @@ void setup(){
 	initEncoders();
 	/*Definit la position initiale du robot*/
 	initRobotState();
+	/*Active la liaison serie*/
+        initSerialLink();
 
         //pushGoalPosition(NO_ID,(double)100*ENC_MM_TO_TICKS, (double)0*ENC_MM_TO_TICKS, (double)100);
         
@@ -38,6 +40,8 @@ void setup(){
 }
 
 void loop(){
+         Serial.println("1");
+        
 	/* on note le temps de debut */
 	timeStart = micros();
 
@@ -45,12 +49,16 @@ void loop(){
 	digitalWrite(DEL_PIN, HIGH);
 
 	/* zone programmation libre */
+        Serial.println("2");
+	/*lecture des ordres*/
+        readIncomingData();
+        Serial.println("3");
 
 	/*recuperation du but suivant (vitesse, angle ou position) */
 	if(current_goal.isReached)
 		popGoal(); /* va changer la valeur de current_goal */
 
-
+        Serial.println("4");
 	/*traitement des taches*/
 	if(!current_goal.isReached){
 		if(current_goal.type == TYPE_SPEED)
@@ -62,25 +70,26 @@ void loop(){
 		else if(current_goal.type == TYPE_PWM)
 			pwmControl(&value_pwm_left,&value_pwm_right);
 	}
-
+        Serial.println("5");
 	/*ecriture de la sortie*/
 	setLeftPWM(value_pwm_left);
 	setRightPWM(value_pwm_right);
-
+        Serial.println("6");
 	/*modele d'evolution*/
 	computeRobotState();
-	
+        Serial.println("7");
 	/* fin zone de programmation libre */
 	
 	/* On eteint la del */
 	digitalWrite(DEL_PIN, LOW);
-	
+        Serial.println("8");
 	/* On attend le temps qu'il faut pour boucler */
 	long udelay = DUREE_CYCLE*1000-(micros()-timeStart);
 	if(udelay<0)
 		Serial.println("ouch : mainloop trop longue");
 	else
 		 delayMicroseconds(udelay);
+        Serial.println("9");
 }
 
 
