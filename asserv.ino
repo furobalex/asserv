@@ -28,9 +28,7 @@ void setup(){
 	initEncoders();
 	/*Definit la position initiale du robot*/
 	initRobotState();
-	/*Active la liaison serie*/
-//	initSerialLink();
-      
+
         pushGoalPosition(NO_ID,(double)100*ENC_MM_TO_TICKS, (double)0*ENC_MM_TO_TICKS, (double)10);
         
 	// LED qui n'en est pas une
@@ -45,9 +43,6 @@ void loop(){
 	digitalWrite(DEL_PIN, HIGH);
 
 	/* zone programmation libre */
-
-	/*lecture des ordres*/
-	//readIncomingData();
 
 	/*recuperation du but suivant (vitesse, angle ou position) */
 	if(current_goal.isReached)
