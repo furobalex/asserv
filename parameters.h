@@ -14,7 +14,7 @@
 #define DIST_MOTOR_AXIS_TO_BACK_MM 122.0 // Distance entre le l'axe des moteurs et l'arriere du robot
 
 
-const int ENC_RESOLUTION = 500; // Nombre de points par tour d'encodeur
+const int ENC_RESOLUTION = 2000; // Nombre de points par tour d'encodeur
 const int ENC_RADIUS = 75; // Rayon de la roue codeuse
 
 const double ENC_TICKS_TO_MM = (2.0*M_PI*((double)ENC_RADIUS))/(((double)ENC_RESOLUTION)*4.0); // en mm.tick^-1 (opti: a calculer apres) environ : 0.0565
