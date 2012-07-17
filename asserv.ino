@@ -29,7 +29,9 @@ void setup(){
 	/*Definit la position initiale du robot*/
 	initRobotState();
 
-        pushGoalPosition(NO_ID,(double)100*ENC_MM_TO_TICKS, (double)0*ENC_MM_TO_TICKS, (double)10);
+        //pushGoalPosition(NO_ID,(double)100*ENC_MM_TO_TICKS, (double)0*ENC_MM_TO_TICKS, (double)100);
+        
+        pushGoalPosition(NO_ID, 100*ENC_MM_TO_TICKS, 0*ENC_MM_TO_TICKS, 255);
         
 	// LED qui n'en est pas une
 	pinMode(DEL_PIN,OUTPUT);

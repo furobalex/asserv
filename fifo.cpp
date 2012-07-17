@@ -19,11 +19,11 @@ void initGoals(){
 	goals.out = 0;
 	
 	//pushGoalAutoCalibration(0,0);
-	/*pour tester le robot
-	pushGoalOrientation(3.14,255); //angle,vitesse
-	pushGoalPosition(10000,9000,255); //x,y,vitesse
-	pushGoalSpeed(2.0,10000); //vitesse,periode
-	*/
+	/*pour tester le robot*/
+	//pushGoalOrientation(3.14,255); //angle,vitesse
+	//pushGoalPosition(NO_ID, 10000, 9000, 255); //x,y,vitesse
+	//pushGoalSpeed(NO_ID, 255, 10000); //vitesse,periode
+	
 	//pushGoalOrientation(3.14,255);
 	/*pushGoalDelay(1000);
 	pushGoalOrientation(3.14,255);
