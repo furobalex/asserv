@@ -9,10 +9,10 @@
 
 
 
-int state_left_pinA;
+/*int state_left_pinA;
 int state_left_pinB;
 int state_right_pinA;
-int state_right_pinB;
+int state_right_pinB;*/
 
 long value_left_enc;
 long value_right_enc;
@@ -31,40 +31,40 @@ void initEncoders(){
 	digitalWrite(PIN_RIGHT_A, HIGH);
 	digitalWrite(PIN_RIGHT_B, HIGH);
 
-	state_left_pinA = digitalRead(PIN_LEFT_A);
+/*	state_left_pinA = digitalRead(PIN_LEFT_A);
 	state_left_pinB = digitalRead(PIN_LEFT_B);
 	state_right_pinA = digitalRead(PIN_RIGHT_A);
-	state_right_pinB = digitalRead(PIN_RIGHT_B);
+	state_right_pinB = digitalRead(PIN_RIGHT_B);*/
 
-	attachInterrupt(INTERRUPT_LEFT_A,valueChangeOnEncoderLeftPinA,CHANGE);
-	attachInterrupt(INTERRUPT_LEFT_B,valueChangeOnEncoderLeftPinB,CHANGE);
-	attachInterrupt(INTERRUPT_RIGHT_A,valueChangeOnEncoderRightPinA,CHANGE);
-	attachInterrupt(INTERRUPT_RIGHT_B,valueChangeOnEncoderRightPinB,CHANGE);
+	attachInterrupt(INTERRUPT_LEFT_A,valueChangeOnEncoderLeftPinA,RISING);
+	//attachInterrupt(INTERRUPT_LEFT_B,valueChangeOnEncoderLeftPinB,CHANGE);
+	attachInterrupt(INTERRUPT_RIGHT_A,valueChangeOnEncoderRightPinA,RISING);
+	//attachInterrupt(INTERRUPT_RIGHT_B,valueChangeOnEncoderRightPinB,CHANGE);
 }
 
 
 void valueChangeOnEncoderLeftPinA(){
 	//int new_state = VALUE_PIN_LEFT_A;
-	int new_state = digitalRead(PIN_LEFT_A);
+	//int new_state = digitalRead(PIN_LEFT_A);
 
-	if(new_state == HIGH)
-		if(state_left_pinB == HIGH)
+	//if(new_state == HIGH)
+		if(VALUE_PIN_LEFT_B == HIGH)
 			value_left_enc--;
 		else
 			value_left_enc++;
 
-	else
+	/*else
 		if(state_left_pinB == HIGH)
 			value_left_enc++;
 		else
-			value_left_enc--;
+			value_left_enc--;*/
 
-	state_left_pinA = new_state;
+	//state_left_pinA = new_state;
 }
 
-void valueChangeOnEncoderLeftPinB(){
-	//int new_state = VALUE_PIN_LEFT_B;
-	int new_state = digitalRead(PIN_LEFT_B);
+/*void valueChangeOnEncoderLeftPinB(){
+	int new_state = VALUE_PIN_LEFT_B;
+	//int new_state = digitalRead(PIN_LEFT_B);
 
 	if(new_state == HIGH)
 		if(state_left_pinA == HIGH)
@@ -79,30 +79,30 @@ void valueChangeOnEncoderLeftPinB(){
 			value_left_enc++;
 
 	state_left_pinB = new_state;
-}
+}*/
 
 void valueChangeOnEncoderRightPinA(){
 	//int new_state = VALUE_PIN_RIGHT_A;
-	int new_state = digitalRead(PIN_RIGHT_A);
+	//int new_state = digitalRead(PIN_RIGHT_A);
 
-	if(new_state == HIGH)
-		if(state_right_pinB == HIGH)
+	//if(new_state == HIGH)
+		if(VALUE_PIN_RIGHT_B == HIGH)
 			value_right_enc--;
 		else
 			value_right_enc++;
 
-	else
+	/*else
 		if(state_right_pinB == HIGH)
 			value_right_enc++;
 		else
-			value_right_enc--;
+			value_right_enc--;*/
 
-	state_right_pinA = new_state;
+	//state_right_pinA = new_state;
 }
 
-void valueChangeOnEncoderRightPinB(){
-	//int new_state = VALUE_PIN_RIGHT_B;
-	int new_state = digitalRead(PIN_RIGHT_B);
+/*void valueChangeOnEncoderRightPinB(){
+	int new_state = VALUE_PIN_RIGHT_B;
+	//int new_state = digitalRead(PIN_RIGHT_B);
 
 	if(new_state == HIGH)
 		if(state_right_pinA == HIGH)
@@ -117,5 +117,5 @@ void valueChangeOnEncoderRightPinB(){
 			value_right_enc++;
 
 	state_right_pinB = new_state;
-}
+}*/
 

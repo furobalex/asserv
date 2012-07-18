@@ -40,5 +40,4 @@ void valueChangeOnEncoderRightPinB();
 extern long value_left_enc;
 extern long value_right_enc;
 
-
 #endif /* ENCODER_H_ */
