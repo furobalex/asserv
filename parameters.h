@@ -54,9 +54,9 @@ const double ENC_CENTER_DIST_TICKS = ENC_CENTER_DIST_MM*ENC_MM_TO_TICKS; // Dist
 #define INTERRUPT_RIGHT_B 3
 
 /* Parametre de la table en mm*/
-#define TABLE_WIDTH_MM 2100.0
+#define TABLE_WIDTH_MM 2000.0
 #define TABLE_HEIGHT_MM 3000.0
-#define TABLE_DISTANCE_MAX_MM 3661.96
+#define TABLE_DISTANCE_MAX_MM 3605.55
 
 /*Parametre de l'asservissement*/
 #define KP_SPEED 2.0
