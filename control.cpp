@@ -245,7 +245,7 @@ positionControl(int* value_pwm_left, int* value_pwm_right){
 		currentDelta = .0;
 		currentAlpha = .0;
 		consigneDelta = .0;
-		consigneAlpha = .0;
+		consigneAlpha =  .0;
 		pid4DeltaControl.Reset();
 		pid4DeltaControl.SetInputLimits(-TABLE_DISTANCE_MAX_MM/ENC_TICKS_TO_MM,TABLE_DISTANCE_MAX_MM/ENC_TICKS_TO_MM);
 		pid4DeltaControl.SetSampleTime(DUREE_CYCLE);
@@ -304,8 +304,18 @@ positionControl(int* value_pwm_left, int* value_pwm_right){
 
  	double dx = current_goal.x-robot_get_x()*0.01;
 	double dy = current_goal.y-robot_get_y()*0.01;
+        
 	currentDelta = -sens * sqrt(dx*dx+dy*dy); // - parce que l'ecart doit etre negatif pour partir en avant
 	
+        /*Serial.print(current_goal.x);
+        Serial.print(" : ");
+        Serial.print(current_goal.y);
+        Serial.print(" : ");
+        Serial.print(robot_get_x());
+        Serial.print(" : ");
+        Serial.print(robot_get_y());
+        Serial.print(" : ");
+        Serial.println(currentDelta);*/
 	
 
 	switch(current_goal.phase)

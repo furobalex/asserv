@@ -16,6 +16,7 @@ unsigned long index = 0;
 unsigned long timeStart = 0;
 
 void setup(){
+        Serial.begin(115200);
 	value_pwm_left = 0;
 	value_pwm_right = 0;
 	/*Initialise la file des buts a atteindre*/
@@ -29,30 +30,35 @@ void setup(){
 	/*Definit la position initiale du robot*/
 	initRobotState();
 	/*Active la liaison serie*/
-        initSerialLink();
+        //initSerialLink();
 
         //pushGoalPosition(NO_ID,(double)100*ENC_MM_TO_TICKS, (double)0*ENC_MM_TO_TICKS, (double)100);
         
-        pushGoalPosition(NO_ID, 100*ENC_MM_TO_TICKS, 0*ENC_MM_TO_TICKS, 100);
+        //Serial.println(1000 * (ENC_MM_TO_TICKS));
+        
+        pushGoalPosition(NO_ID, (0 * ENC_MM_TO_TICKS), (1000 * ENC_MM_TO_TICKS), (double)255);
 
 	// LED qui n'en est pas une
 	pinMode(DEL_PIN,OUTPUT);
 }
 
 void loop(){  
-         Serial.print(value_left_enc);
+        /* on note le temps de debut */
+	timeStart = micros();
+
+         /*Serial.print(value_left_enc);
          Serial.print(" : ");
          Serial.println(value_right_enc);
          
-	/* on note le temps de debut */
-	timeStart = micros();
-
+         Serial.print(robot_get_x() * (ENC_TICKS_TO_MM * .01));
+         Serial.print(" - ");
+         Serial.println(robot_get_y() * (ENC_TICKS_TO_MM * .01));*/
 	/* La del est allumee pendant le traitement */
 	digitalWrite(DEL_PIN, HIGH);
 
 	/* zone programmation libre */
 	/*lecture des ordres*/
-        readIncomingData();
+        //readIncomingData();
 
 	/*recuperation du but suivant (vitesse, angle ou position) */
 	if(current_goal.isReached)
