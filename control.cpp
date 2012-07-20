@@ -306,17 +306,6 @@ positionControl(int* value_pwm_left, int* value_pwm_right){
 	double dy = current_goal.y-robot_get_y()*0.01;
         
 	currentDelta = -sens * sqrt(dx*dx+dy*dy); // - parce que l'ecart doit etre negatif pour partir en avant
-	
-        /*Serial.print(current_goal.x);
-        Serial.print(" : ");
-        Serial.print(current_goal.y);
-        Serial.print(" : ");
-        Serial.print(robot_get_x());
-        Serial.print(" : ");
-        Serial.print(robot_get_y());
-        Serial.print(" : ");
-        Serial.println(currentDelta);*/
-	
 
 	switch(current_goal.phase)
 	{
@@ -356,7 +345,7 @@ positionControl(int* value_pwm_left, int* value_pwm_right){
 					pid4AlphaControl.SetOutputLimits(-150,150); // composante liee a la vitesse de rotation
 				}
 			}
-			if(abs(currentDelta) < 10*ENC_MM_TO_TICKS) /*si l'ecart n'est plus que de 6 mm, on considere la consigne comme atteinte*/
+			if(abs(currentDelta) < 6*ENC_MM_TO_TICKS) /*si l'ecart n'est plus que de 6 mm, on considere la consigne comme atteinte*/
 			{
 				//envoi du message
 				sendMessage(current_goal.id,0);
@@ -367,7 +356,7 @@ positionControl(int* value_pwm_left, int* value_pwm_right){
 		break;
 
 		case PHASE_ARRET:
-			if (abs(currentDelta) > 10*ENC_MM_TO_TICKS)
+			if (abs(currentDelta) > 6*ENC_MM_TO_TICKS)
 			{
 				current_goal.phase = PHASE_CORRECTION;
 			}
