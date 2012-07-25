@@ -17,7 +17,20 @@ void initGoals(){
 	goals.goal = (Goal*)malloc(sizeof(Goal)*SIZE);
 	goals.in = 0;
 	goals.out = 0;
-	
+
+        for(int i=0;i<10;i++){
+          pushGoalPosition(NO_ID, (double)400 * (ENC_MM_TO_TICKS), (double)0 * (ENC_MM_TO_TICKS), (double)250);
+          pushGoalPosition(NO_ID, (double)200 * (ENC_MM_TO_TICKS), (double)0 * (ENC_MM_TO_TICKS), (double)250);
+        }/*
+        for(int i=0;i<10;i++){
+            pushGoalOrientation(NO_ID, 3.14/2, 100); //angle,vitesse
+            pushGoalOrientation(NO_ID, 0, 100); //angle,vitesse
+          }  
+        //pushGoalOrientation(NO_ID, 3.14/2, 100); //angle,vitesse
+        /*pushGoalPosition(NO_ID, (double)100 * (ENC_MM_TO_TICKS), (double)100 * (ENC_MM_TO_TICKS), (double)255);
+        pushGoalPosition(NO_ID, (double)0 * (ENC_MM_TO_TICKS), (double)100 * (ENC_MM_TO_TICKS), (double)255);
+        pushGoalPosition(NO_ID, (double)0 * (ENC_MM_TO_TICKS), (double)0 * (ENC_MM_TO_TICKS), (double)255);*/
+
 	//pushGoalAutoCalibration(0,0);
 	/*pour tester le robot*/
 	//pushGoalOrientation(3.14,255); //angle,vitesse
