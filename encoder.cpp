@@ -31,14 +31,14 @@ void initEncoders(){
 
 void valueChangeOnEncoderLeftPinA(){
 	if(VALUE_PIN_LEFT_B == HIGH)
-      		value_left_enc--;
-      	else
       		value_left_enc++;
+      	else
+      		value_left_enc--;
 }
 
 void valueChangeOnEncoderRightPinA(){
 	if(VALUE_PIN_RIGHT_B == HIGH)
-		value_right_enc--;
-	else
 		value_right_enc++;
+	else
+		value_right_enc--;
 }
