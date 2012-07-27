@@ -390,8 +390,12 @@ positionControl(int* value_pwm_left, int* value_pwm_right){
 	else
 	{
 		if (onlyTurn) {
-			output4Delta = 0;
+                        output4Delta = 0;
 		}
+                else {
+                        output4Alpha /= 10; // Ceci est une tentative de hack
+                }
+
 		(*value_pwm_right) = output4Delta+output4Alpha;
 		(*value_pwm_left) = output4Delta-output4Alpha;
 		
