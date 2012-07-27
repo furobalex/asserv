@@ -281,8 +281,7 @@ positionControl(int* value_pwm_left, int* value_pwm_right){
 	/*calcul de l'angle alpha a combler avant d'etre aligne avec le point cible
 	 * borne = [-PI PI] */
 	double angularCoeff = atan2(current_goal.y-robot_get_y()*0.01,current_goal.x-robot_get_x()*0.01); /*arctan(y/x) -> [-PI,PI]*/
-	currentAlpha = moduloPI(angularCoeff - robot_get_angle()); /* il faut un modulo ici, c'est sur !
-
+	currentAlpha = moduloPI(angularCoeff - robot_get_angle()); /* il faut un modulo ici, c'est sur ! */
 
 	/* En fait, le sens est donne par l'ecart entre le coeff angulaire et l'angle courant du robot.
 	 * Si cet angle est inferieur a PI/2 en valeur absolue, le robot avance en marche avant (il avance quoi)
