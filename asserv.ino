@@ -39,13 +39,6 @@ void loop(){
         /* on note le temps de debut */
 	timeStart = micros();
 
-         /*Serial.print(value_left_enc);
-         Serial.print(" : ");
-         Serial.println(value_right_enc);
-         
-         Serial.print(robot_get_x() * (ENC_TICKS_TO_MM * .01));
-         Serial.print(" - ");
-         Serial.println(robot_get_y() * (ENC_TICKS_TO_MM * .01));*/
 	/* La del est allumee pendant le traitement */
 	digitalWrite(DEL_PIN, HIGH);
 
