@@ -20,7 +20,7 @@ const int ENC_RADIUS = 42.0; // Rayon de la roue codeuse
 const double ENC_TICKS_TO_MM = (2.0*M_PI*((double)ENC_RADIUS))/(((double)ENC_RESOLUTION)); // en mm.tick^-1 (opti: a calculer apres) environ : 0.0565
 const double ENC_MM_TO_TICKS = (((double)ENC_RESOLUTION))/(2.0*M_PI*((double)ENC_RADIUS)); // environ : 17.6839
 
-const double ENC_CENTER_DIST_MM = 155.0; // Distance entre chaque roue codeuse ET LE CENTRE 145 pour le truc de test
+const double ENC_CENTER_DIST_MM = 178.0; // Distance entre chaque roue codeuse ET LE CENTRE 145 pour le truc de test
 const double ENC_CENTER_DIST_TICKS = ENC_CENTER_DIST_MM*ENC_MM_TO_TICKS; // Distance entre chaque roue codeuse du robot en ticks
 
 #define DEL_PIN 16
